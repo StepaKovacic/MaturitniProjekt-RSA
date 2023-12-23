@@ -28,4 +28,3 @@ rsa.encrypt.py --message unencripted.txt --o message.txt --pubkey rsa.key
 rsa.decrypt.py --message message.txt  --o output.txt --privkey rsa.key.pub
 ```
 
-## Nápady
