@@ -1,4 +1,4 @@
-# Maturitní projekt na téma RSA šifry
+# Maturitní projekt - program na šifrování a dešifrování podle RSA algoritmu
 
 ## Hlavní myšlenka 
 - Vytvoření programu na šifrování a dešifrování souborů pomocí RSA algoritmu a jeho privátního/soukromého klíče a veřejného klíče.
