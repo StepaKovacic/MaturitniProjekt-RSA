@@ -1,6 +1,15 @@
 # Maturitní projekt na téma RSA šifry
 
 ## Hlavní myšlenka 
+<aside>
+➖ Vytvoření programu na šifrování a dešifrování souborů pomocí RSA algoritmu a jeho privátního/soukromého klíče a veřejného klíče
+
+</aside>
+
+<aside>
+➖ Půjde hlavně o to aby kód byl dobře dokumentovaný a aby bylo vysvětleno proč, co a jak se děje - ať už z hlediska matematiky nebo programování
+
+</aside>
 Projekt by mohl sloužit jako python modul
 ```python
 import rsa 
