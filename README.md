@@ -1,3 +1,5 @@
-#Maturitní projekt na téma RSA šifry
+# Maturitní projekt na téma RSA šifry
 
+## Hlavní myšlenka 
 
+## Nápady
