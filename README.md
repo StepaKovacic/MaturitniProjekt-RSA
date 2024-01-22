@@ -1,11 +1,17 @@
 # Maturitní projekt - program na šifrování a dešifrování podle RSA algoritmu
 
+## Zadání práce 
+- Vytvořím program který dokáže pomocí šifry RSA (iniciály autorů Rivest, Shamir, Adleman) zakódovat a dekódovat data. Program bude schopný načíst klíč ze souboru. 
+
+## Motivace
+
+
 ## Hlavní myšlenka 
 - Vytvoření programu na šifrování a dešifrování souborů pomocí RSA algoritmu a jeho privátního/soukromého klíče a veřejného klíče.
 - Půjde hlavně o to aby kód byl dobře dokumentovaný a aby bylo vysvětleno proč, co a jak se děje - ať už z hlediska matematiky nebo programování.
 
 
-Projekt by mohl sloužit jako python modul
+### Projekt by mohl sloužit jako python modul spustitelný následujícím kódem: 
 ```python
 import rsa 
 
@@ -19,7 +25,7 @@ def decrypt(key, encrypted_file, output_file):
 	output = rsa.decrypt(f)
 	r = open("output_file", "w")
 ```
-nebo jako konzolová aplikace 
+### nebo jako konzolová aplikace:
 ```bash
 #zakódování souboru unencripted.txt na message.txt veřejným klíčem rsa.key 
 rsa.encrypt.py --message unencripted.txt --o message.txt --pubkey rsa.key
