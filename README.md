@@ -1,36 +1,13 @@
 # Maturitní projekt - program na šifrování a dešifrování podle RSA algoritmu
 
-## Zadání práce 
-- Vytvořím program který dokáže pomocí šifry RSA (iniciály autorů Rivest, Shamir, Adleman) zakódovat a dekódovat data. Program bude schopný načíst klíč ze souboru. 
+# Motivace
+Existuje mnoho funkčních kódů zabývajících se RSA, které se dají v praxi použít. Jsou rychlé, komplikované a využívají různých triků jak být co nejvíce efektivní a elegantní. 
 
-## Motivace
+Problém s těmito kódy je ten, že není lehké pochopit jejich základní logiku, matematiku v pozadí a princip o který se všechny tyto kódy opírají. 
 
+Cílem této práce je vytvořit program, který bude dobře dokumentovaný, komentovaný a vysvětlený. Nebude využito žádných zásadních programátorských kliček. Hlavní je pochopit jak kód funguje a proč.
 
-## Hlavní myšlenka 
-- Vytvoření programu na šifrování a dešifrování souborů pomocí RSA algoritmu a jeho privátního/soukromého klíče a veřejného klíče.
-- Půjde hlavně o to aby kód byl dobře dokumentovaný a aby bylo vysvětleno proč, co a jak se děje - ať už z hlediska matematiky nebo programování.
+# Hlavní myšlenka
+RSA (iniciály autorů Rivest, Shamir, Adleman) algoritmus je způsob šifrování. jedná se o takzvanou asymetrickou šifru která zpočívá ve dvou klíčích. soukromém a veřejném.
 
-
-### Projekt by mohl sloužit jako python modul spustitelný následujícím kódem: 
-```python
-import rsa 
-
-def encrypt(key, message_file, output_file):
-	f = open("message_file", "r")
-	output = rsa.encrypt(f)
-	r = open("output_file", "w")
-
-def decrypt(key, encrypted_file, output_file):
-	f = open("encrypted_file", "r")
-	output = rsa.decrypt(f)
-	r = open("output_file", "w")
-```
-### nebo jako konzolová aplikace:
-```bash
-#zakódování souboru unencripted.txt na message.txt veřejným klíčem rsa.key 
-rsa.encrypt.py --message unencripted.txt --o message.txt --pubkey rsa.key
-
-#dekódování soubor message.txt na output.txt soukromým klíčem rsa.key.pub
-rsa.decrypt.py --message message.txt  --o output.txt --privkey rsa.key.pub
-```
-
+Vytvořím kód který zpracuje šifru RSA a bude možné ho využít jako edukační nástroj.
