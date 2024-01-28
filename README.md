@@ -13,10 +13,5 @@ RSA algoritmus (iniciály autorů Rivest, Shamir, Adleman) je způsob šifrován
 Vytvořím kód který zpracuje šifru RSA a bude možné ho využít jako edukační nástroj.
 
 
-RSA (iniciály autorů Rivest, Shamir, Adleman) je šifra s veřejným klíčem, jedná se o první algoritmus, který je vhodný jak pro podepisování, tak šifrování. Používá se i dnes, přičemž při dostatečné délce klíče je považován za bezpečný. [[1]](#1).
+RSA (iniciály autorů Rivest, Shamir, Adleman) je šifra s veřejným klíčem, jedná se o první algoritmus, který je vhodný jak pro podepisování, tak šifrování. Používá se i dnes, přičemž při dostatečné délce klíče je považován za bezpečný. [[Wikipedie]]
 
-## References
-<a id="1">[1]</a> 
-Dijkstra, E. W. (1968). 
-Go to statement considered harmful. 
-Communications of the ACM, 11(3), 147-148.
