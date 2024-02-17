@@ -9,7 +9,9 @@ app = Flask(__name__)
 
 @app.route("/desifrovani")
 def desifrovani():
+	flash('You were successfully logged in')
 	return render_template("desifrovani.html")
+	
 
 @app.route("/zasifrovani")
 def zasifrovani():
