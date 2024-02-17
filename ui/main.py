@@ -7,13 +7,15 @@ app = Flask(__name__)
 def main(): 
 	return render_template("index.html") 
 
-@app.route('/success', methods = ['POST']) 
+@app.route('/uspech', methods = ['POST']) 
 def success(): 
 	if request.method == 'POST': 
 		f = request.files['file'] 
 		f.save("demo.txt") 
+		d = open("demo.txt", "r")
 		
-		return render_template("acknowledgement.html", name = f.filename) 
+		x = d.read()
+		return render_template("uspech.html", name = f.filename, text = x) 
 
 if __name__ == '__main__': 
 	app.run(debug=True)

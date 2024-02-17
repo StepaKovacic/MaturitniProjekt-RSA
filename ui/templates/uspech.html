@@ -1,0 +1,17 @@
+
+{% extends "nav.html" %}
+
+{% block title %}Úspěch{% endblock %}
+
+
+{% block content %}
+      <h1>Soubor zdárně nahrán</h1> 
+      <p>Název souboru: <strong>{{name}}</strong></p> 
+      
+      <div class="card">
+         <div class="card-body">
+            <h3 class="card-title">Text souboru:</h3>
+            <p>{{text}}</p>
+         </div>
+       </div>
+{% endblock %}
