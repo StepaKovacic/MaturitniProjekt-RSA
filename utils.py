@@ -1,5 +1,29 @@
+import re
 import random
-def vytvor_klic():
+
+vsechny_znaky = " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťž1234567890.,"
+
+# def cisla_na_text():
+#     print("hello world")
+
+
+def text_na_cisla(reterez_na_prevod):
+        global vsechny_znaky
+        reterez_na_prevod = reterez_na_prevod.lower()
+        
+
+        for i in reterez_na_prevod:
+            if i not in vsechny_znaky:
+                print("toto nelze vykonat, v řetězci se nachází nedovolený znak: " + str(i))
+                return
+        vysledek = ""
+
+        for i in reterez_na_prevod:
+            vysledek += str(100 + (re.search(i, vsechny_znaky).start()))[1:]
+            
+        return(vysledek)
+
+def generovani_klice():
     def Soudelna(cislo_a, cislo_b):
         delitele_cisla_a = []
         for i in range(1, cislo_a+1):
@@ -36,8 +60,7 @@ def vytvor_klic():
             e = random.randrange(1000, 10000)
             if Soudelna(e, phi) == False:
                 break
-        # print("e", e)
-        # print("phi", phi)
+        
         d = 1
         while True:
             
@@ -48,9 +71,3 @@ def vytvor_klic():
                 d += 1
         return {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
     return Vygeneruj_klice(udelej_velke_prvocislo(), udelej_velke_prvocislo())
-
-
-print(vytvor_klic())
-
-
-#output v json

@@ -1,7 +1,7 @@
 import gmpy2
 import re
 
-n, e, d = 43651939, 4117, 23011693
+n, e, d = 58772303, 6943, 14572879
 
 def zakoduj(text_na_prevod, n, e):
     def preved_retezec_na_cislo(reterez_na_prevod):
@@ -42,6 +42,9 @@ def dekoduj(hodnoty, n, d):
     
     return("".join([vsechny_znaky[kod] for kod in [int(vysledek[int(i):int(i)+2]) for i in range(0, len(vysledek), 2)]]))
 
-xxx = zakoduj("karel kopýtko", n, e)
 
-print(dekoduj(xxx, n, d))
+    
+
+
+
+print(dekoduj([6725706, 2965497, 26082572, 8305383, 23712799, 43609889, 21213230, 10544327, 8212998, 51042532, 21509346, 27850393, 38343783], n, d))
