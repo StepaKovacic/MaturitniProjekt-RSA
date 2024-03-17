@@ -35,18 +35,38 @@ def dec(zakodovany_text, n, d):
 
 def test(zprava):
     # print(zprava)
-    zprava = zprava + "dddddd"
+    red_zprava = zprava
+    vata = "kkkkkk"
+    zprava = zprava + vata
     klic = generovani_klice()
     # print(zprava == dec(enc(zprava, klic["verejny_klic"][0], klic["verejny_klic"][1]), klic["soukromy_klic"][0], klic["soukromy_klic"][1]).replace("      ", ""))
     # print(dec(enc(zprava, klic["verejny_klic"][0], klic["verejny_klic"][1]), klic["soukromy_klic"][0], klic["soukromy_klic"][1]).replace("dddddd", "") in zprava)
-    x = dec(enc(zprava, klic["verejny_klic"][0], klic["verejny_klic"][1]), klic["soukromy_klic"][0], klic["soukromy_klic"][1]).replace("dddddd", "")
+    x = dec(enc(zprava, klic["verejny_klic"][0], klic["verejny_klic"][1]), klic["soukromy_klic"][0], klic["soukromy_klic"][1])
     # print(re.sub(x, "", zprava))
-    print("shoduje se původní zpráva s dekodovanou:" +  str(re.sub("dddddd", "", x ) == re.sub("dddddd", "", zprava)) )
-    print(str(re.sub("dddddd", "", x )), re.sub("dddddd", "", zprava))
+    
+    string = list(x[::-1])
+    
+    for index, item in enumerate(string):
+        y = len(vata)
+        
+        if len(vata)>0:
+            
+            if item in vata:
+                vata = vata.replace(item, "", 1)
+            string[index] = ""
+        else: 
+            break
+        
+    print("".join(string)[::-1])
+    print("shoduje se původní zpráva s dekodovanou:" +  str("".join(string)[::-1] == red_zprava) )
+
+    # print()
+    # print(str(re.sub(vata, "", x ))[::-1], re.sub(vata, "", zprava))
+    # print("----")
     # print(dec(enc(zprava, klic["verejny_klic"][0], klic["verejny_klic"][1]), klic["soukromy_klic"][0], klic["soukromy_klic"][1]))
 
 
 
 if __name__ == "__main__":
-    for i in range(100):
-        test(" adsf sdfsaf ")
+    for i in range(10):
+        test("asjdf oiqwhedof hasdoifh oqwadhcdsahoei fhcoyxhcoiiewqh ofihcaohxc oweqhdfo haxocheqwoihd oajsnc oqwe d")
