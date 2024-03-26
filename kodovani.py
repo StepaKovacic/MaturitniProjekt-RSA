@@ -2,7 +2,7 @@ from utils import *
 import re
 import gmpy2
 
-vsechny_znaky = " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťž1234567890.,"
+vsechny_znaky = " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťž1234567890,."
 
 def enc(text_na_prevod, n, e):
     cisly_vyjadreny_text = text_na_cisla(text_na_prevod)
@@ -57,8 +57,8 @@ def test(zprava):
         else: 
             break
         
-    print("".join(string)[::-1])
-    print("shoduje se původní zpráva s dekodovanou:" +  str("".join(string)[::-1] == red_zprava) )
+    # print("hotovo " + "".join(string)[::-1])
+    return str("".join(string)[::-1] == red_zprava) 
 
     # print()
     # print(str(re.sub(vata, "", x ))[::-1], re.sub(vata, "", zprava))
@@ -68,5 +68,11 @@ def test(zprava):
 
 
 if __name__ == "__main__":
+    valid_nebo_ne = True
     for i in range(10):
-        test("asjdf oiqwhedof hasdoifh oqwadhcdsahoei fhcoyxhcoiiewqh ofihcaohxc oweqhdfo haxocheqwoihd oajsnc oqwe d")
+        if test(" abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťž1234567890") == False:
+            valid_nebo_ne = False
+            break
+    print("je test úspěšný? " + str(valid_nebo_ne))
+            
+            

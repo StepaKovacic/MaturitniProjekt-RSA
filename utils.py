@@ -71,3 +71,7 @@ def generovani_klice():
                 d += 1
         return {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
     return Vygeneruj_klice(udelej_velke_prvocislo(), udelej_velke_prvocislo())
+
+
+if __name__ == "__main__":
+    print(generovani_klice())
