@@ -21,6 +21,9 @@ def text_na_cisla(reterez_na_prevod):
             
         return(vysledek)
 
+def cisla_na_text(cisla_na_prevod):
+    return("".join([vsechny_znaky[kod] for kod in [int(cisla_na_prevod[int(i):int(i)+2]) for i in range(0, len(cisla_na_prevod), 2)]]))
+
 def generovani_klice():
     def Soudelna(cislo_a, cislo_b):
         delitele_cisla_a = []
@@ -45,30 +48,6 @@ def generovani_klice():
             if is_prime:
                 return x
 
-
-    # def Vygeneruj_klice(prvocislo_p, prvocislo_q):
-    #     n = prvocislo_p * prvocislo_q
-
-    #     #Eulerova funkce 
-    #     phi = (prvocislo_p - 1) * (prvocislo_q - 1)
-
-    #     #zvolíme náhodné e nesoudělné s phi
-    #     while True:
-    #         # vygenerování náhodného čísla e které je nesoudělné s phi
-    #         e = random.randrange(1000, 10000)
-    #         if Soudelna(e, phi) == False:
-    #             break
-        
-    #     d = 1
-    #     while True:
-            
-            
-    #         if (d*e)%phi == 1:
-    #             break
-    #         else: 
-    #             d += 1
-    #     return {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
-    # return Vygeneruj_klice(udelej_velke_prvocislo(), udelej_velke_prvocislo())
     prvocislo_p = udelej_velke_prvocislo()
     prvocislo_q = udelej_velke_prvocislo()
 

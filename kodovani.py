@@ -28,12 +28,9 @@ def dec(zakodovany_text, n, d):
 
     for cast_zakodovaneho_textu in zakodovany_text:
         #přidávám hodně nul, abych doplnil ty, které se v průběhu konveze str->int ztratí
-
         dekodovany_text += (str(10000000 + powmod(cast_zakodovaneho_textu, d, n))[2:])
-        #tech nul se tam prida asi az moc
-    
-    return("".join([vsechny_znaky[kod] for kod in [int(dekodovany_text[int(i):int(i)+2]) for i in range(0, len(dekodovany_text), 2)]]))
-    print(dekodovany_text)
+
+    return cisla_na_text(dekodovany_text)
 
 
 def test(zprava):
@@ -61,7 +58,7 @@ def test(zprava):
 if __name__ == "__main__":
     valid_nebo_ne = True
     for i in range(10):
-        if test(" abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťž1234567890") == False:
+        if test(vsechny_znaky) == False:
             valid_nebo_ne = False
             break
     print("Byl test úspěšný? " + str(valid_nebo_ne))
