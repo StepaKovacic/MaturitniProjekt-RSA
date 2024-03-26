@@ -1,15 +1,13 @@
 import re
 import random
 
-vsechny_znaky = " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťž1234567890.,"
+def znaky():
+    return  " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťžABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓŮÚÝĚČĎŇŘŠŤŽ1234567890.,"
 
-# def cisla_na_text():
-#     print("hello world")
-
+vsechny_znaky = znaky()
 
 def text_na_cisla(reterez_na_prevod):
         global vsechny_znaky
-        reterez_na_prevod = reterez_na_prevod.lower()
         
 
         for i in reterez_na_prevod:
@@ -19,7 +17,7 @@ def text_na_cisla(reterez_na_prevod):
         vysledek = ""
 
         for i in reterez_na_prevod:
-            vysledek += str(100 + (re.search(i, vsechny_znaky).start()))[1:]
+            vysledek += str(100 + (vsechny_znaky.find(i)))[1:]
             
         return(vysledek)
 
@@ -48,29 +46,51 @@ def generovani_klice():
                 return x
 
 
-    def Vygeneruj_klice(prvocislo_p, prvocislo_q):
-        n = prvocislo_p * prvocislo_q
+    # def Vygeneruj_klice(prvocislo_p, prvocislo_q):
+    #     n = prvocislo_p * prvocislo_q
 
-        #Eulerova funkce 
-        phi = (prvocislo_p - 1) * (prvocislo_q - 1)
+    #     #Eulerova funkce 
+    #     phi = (prvocislo_p - 1) * (prvocislo_q - 1)
 
-        #zvolíme náhodné e nesoudělné s phi
-        while True:
-            # vygenerování náhodného čísla e které je nesoudělné s phi
-            e = random.randrange(1000, 10000)
-            if Soudelna(e, phi) == False:
-                break
+    #     #zvolíme náhodné e nesoudělné s phi
+    #     while True:
+    #         # vygenerování náhodného čísla e které je nesoudělné s phi
+    #         e = random.randrange(1000, 10000)
+    #         if Soudelna(e, phi) == False:
+    #             break
         
-        d = 1
-        while True:
+    #     d = 1
+    #     while True:
             
             
-            if (d*e)%phi == 1:
-                break
-            else: 
-                d += 1
-        return {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
-    return Vygeneruj_klice(udelej_velke_prvocislo(), udelej_velke_prvocislo())
+    #         if (d*e)%phi == 1:
+    #             break
+    #         else: 
+    #             d += 1
+    #     return {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
+    # return Vygeneruj_klice(udelej_velke_prvocislo(), udelej_velke_prvocislo())
+    prvocislo_p = udelej_velke_prvocislo()
+    prvocislo_q = udelej_velke_prvocislo()
+
+    n = prvocislo_p * prvocislo_q
+    #Eulerova funkce 
+    phi = (prvocislo_p - 1) * (prvocislo_q - 1)
+
+    #zvolíme náhodné e nesoudělné s phi
+    while True:
+        # vygenerování náhodného čísla e které je nesoudělné s phi
+        e = random.randrange(1000, 10000)
+        if Soudelna(e, phi) == False:
+            break
+        
+    d = 1
+    while True:
+        if (d*e)%phi == 1:
+            break
+        else: 
+            d += 1
+    return {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
+
 
 
 if __name__ == "__main__":
