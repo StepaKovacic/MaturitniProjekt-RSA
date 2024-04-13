@@ -10,11 +10,11 @@ def enc(text_na_prevod, n, e):
 
     rozdeleny_ciselny_retezec = [(cisly_vyjadreny_text[i:i+skok]) for i in range(0, len(cisly_vyjadreny_text), skok)]
 
-    zasifrovany = []
+    list_zasifrovanych_substringu = []
     for clen_ciselneho_rezezce in rozdeleny_ciselny_retezec:
-        zasifrovany.append((int(clen_ciselneho_rezezce)**e)%n)
+        list_zasifrovanych_substringu.append((int(clen_ciselneho_rezezce)**e)%n)
 
-    return zasifrovany
+    return list_zasifrovanych_substringu
 
 def dec(zakodovany_text, n, d):
     def powmod(base, exp, mod):
@@ -56,11 +56,11 @@ def test(zprava):
     return str("".join(string)[::-1] == red_zprava) 
 
 if __name__ == "__main__":
-    valid_nebo_ne = True
+    test_usepch_bool = True
     for i in range(10):
         if test(vsechny_znaky) == False:
-            valid_nebo_ne = False
+            test_usepch_bool = False
             break
-    print("Byl test úspěšný? " + str(valid_nebo_ne))
+    print("Byl test úspěšný? " + str(test_usepch_bool).upper())
             
             
