@@ -21,7 +21,7 @@ Pro zakódování zprávy je potřeba mít `veřejný klíč`.
 Zakódování zprávy zpracuje funkce `enc(text_na_prevod, n, e)` ze souboru `kodovani.py`. Funkce přijímá tři povinné argumenty: 
 
 - `text_na_prevod` - jedná se o zprávu, kterou uživatel chce veřejným klíčem zakódovat. Formát vstupt je řetězec (string)
-- `n` - konstanta, společná část veřejného i soukromého klíče. Je to nultý člen uspořádané dvojice parametrů veřejného klíče. 
-- `e` - unikátní konstanta obsažena pouze ve veřejném klíči. Je to první člen uspořádané dvojice parametrů veřejného klíče. 
+- `n` - konstanta, společná část veřejného i soukromého klíče. Je to nultý člen uspořádané dvojice parametrů veřejného klíče. Formát vstupu je celé číslo (integer). 
+- `e` - unikátní konstanta obsažena pouze ve veřejném klíči. Je to první člen uspořádané dvojice parametrů veřejného klíče. Formát vstupt je celé číslo (integer).
 
 
