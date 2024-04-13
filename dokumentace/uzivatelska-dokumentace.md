@@ -10,7 +10,7 @@ Aby asymetrická šifra sloužila efektivně, musí být bezpečná. Z principu 
 
 Generování klíče zabezpečuje funkce `generovani_klice()` v souboru `utils.py`. Pro maximální efektivitu a bezpečnost funkce nebere žádný argument (podnět) pro vytvoření klíče. Vše je čistě náhodné. 
 
-## Formát výstupu
+### Formát výstupu
 
 funkce `generovani_klice()` vrací slovník (dictionary) se dvěma šifračními klíči ve formátu `{"verejny_klic":(n, e), "soukromy_klic":(n, d) }`. Separátní klíče jsou ve formátu uspořádané dvojice o dvou konstantách (tuple).
 
