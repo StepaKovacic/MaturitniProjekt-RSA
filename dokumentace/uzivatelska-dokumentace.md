@@ -12,4 +12,16 @@ Generování klíče zabezpečuje funkce `generovani_klice()` v souboru `utils.p
 
 ## Formát výstupu
 
-funkce `generovani_klice()` vrací slovník (dictionary) se dvěma šifračními klíči ve formátu `{"verejny_klic":(n, e), "soukromy_klic":(n, d) }`
+funkce `generovani_klice()` vrací slovník (dictionary) se dvěma šifračními klíči ve formátu `{"verejny_klic":(n, e), "soukromy_klic":(n, d) }`. Separátní klíče jsou ve formátu uspořádané dvojice o dvou konstantách (tuple).
+
+## Zakódování zprávy 
+
+Pro zakódování zprávy je potřeba mít `veřejný klíč`. 
+
+Zakódování zprávy zpracuje funkce `enc(text_na_prevod, n, e)` ze souboru `kodovani.py`. Funkce přijímá tři povinné argumenty: 
+
+- `text_na_prevod` - jedná se o zprávu, kterou uživatel chce veřejným klíčem zakódovat. Formát vstupt je řetězec (string)
+- `n` - konstanta, společná část veřejného i soukromého klíče. Je to nultý člen uspořádané dvojice parametrů veřejného klíče. 
+- `e` - unikátní konstanta obsažena pouze ve veřejném klíči. Je to první člen uspořádané dvojice parametrů veřejného klíče. 
+
+
