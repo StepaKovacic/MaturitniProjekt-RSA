@@ -56,6 +56,7 @@ def test(zprava):
     return str("".join(string)[::-1] == red_zprava) 
 
 if __name__ == "__main__":
+
     test_usepch_bool = True
     for i in range(10):
         if test(vsechny_znaky) == False:

@@ -1,11 +1,23 @@
 import random
 
 def znaky():
+    """
+    Funkce vrací " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťžABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓŮÚÝĚČĎŇŘŠŤŽ1234567890.,"
+    """
     return  " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťžABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓŮÚÝĚČĎŇŘŠŤŽ1234567890.,"
 
 vsechny_znaky = znaky()
 
 def text_na_cisla(reterez_na_prevod):
+        """
+        Funkce převede text na list celých čísel
+
+        Vstup -> text, délka celých čísel (skok)
+
+        Výstup -> list celých čísel o délce "skok"
+        
+        Funkce dostane text a převede jej na list optimálně dlouhých celých čísel (integerů)
+        """
         global vsechny_znaky
         
 
@@ -21,9 +33,23 @@ def text_na_cisla(reterez_na_prevod):
         return(vysledek)
 
 def cisla_na_text(cisla_na_prevod):
+    """
+    Funkce převede list celých čísel na text.
+
+    Vstup -> list celých čísel (integerů)
+
+    Výstup -> text
+    """
     return("".join([vsechny_znaky[kod] for kod in [int(cisla_na_prevod[int(i):int(i)+2]) for i in range(0, len(cisla_na_prevod), 2)]]))
 
 def generovani_klice():
+    """
+    Funkce generuje slovník klíčů RSA algoritmu.
+
+    Vstup -> žádný 
+    
+    Výstup -> ve formátu {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
+    """
     def Soudelna(cislo_a, cislo_b):
         delitele_cisla_a = []
         for i in range(1, cislo_a+1):
@@ -70,6 +96,23 @@ def generovani_klice():
     return {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
 
 
+def test_text_na_cisla(retezec):
+    """
+    Test převodu textu na čísla a zpět. 
+
+    Vstup -> Testovací text
+
+    Výstup -> Úspěšnost testu (True/False)
+    """
+    return f"Test -> text na cisla funguje : {retezec == cisla_na_text(text_na_cisla(retezec))}"
+
+
+
 
 if __name__ == "__main__":
+    help(generovani_klice)
+    help(cisla_na_text)
     print(generovani_klice())
+    print(test_text_na_cisla(vsechny_znaky))
+    
+
