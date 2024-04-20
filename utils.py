@@ -1,5 +1,5 @@
 import random
-
+skok = 6
 def znaky():
     """
     Funkce vrací jednotný retězec používaných znaků se správným pořadím
@@ -8,12 +8,13 @@ def znaky():
 
 vsechny_znaky = znaky()
 
-def text_na_cisla(reterez_na_prevod, skok):
+def text_na_cisla(reterez_na_prevod):
         """
         Funkce převede text na list celých čísel
         Vstup -> text, délka celých čísel (skok)
         Výstup -> list celých čísel o délce "skok"
         """
+        
         vata = "#"*skok
         reterez_na_prevod = reterez_na_prevod + vata
         for i in reterez_na_prevod:
@@ -33,12 +34,12 @@ def cisla_na_text(cisla_na_prevod):
     Vstup -> list celých čísel (integerů)
     Výstup -> text
     """
-    bababoi = "".join(cisla_na_prevod)
-    print("".join([vsechny_znaky[int(index_znaku)] for index_znaku in[bababoi[x:x+2] for x in [i for i in range(0, len(bababoi), 2)]]]))
-    return ("".join([vsechny_znaky[int(index_znaku)] for index_znaku in[bababoi[x:x+2] for x in [i for i in range(0, len(bababoi), 2)]]]))
-    # print([cisla_na_prevod[int(x):int(x)+2] for x in range(len(bababoi))])
-    # return("".join([vsechny_znaky[kod] for kod in [(cisla_na_prevod[int(i):int(i)+2]) for i in range(0, len(cisla_na_prevod), 2)]]))
+    slouceno_dohromady = "".join(cisla_na_prevod)
+    retezec_neocisteny = "".join([vsechny_znaky[int(index_znaku)] for index_znaku in[slouceno_dohromady[x:x+2] for x in [i for i in range(0, len(slouceno_dohromady), 2)]]])
+    posledni_hashtag_index = min([i for i, e in enumerate(retezec_neocisteny) if e == "#"])  
+    return retezec_neocisteny[:posledni_hashtag_index]
 
+    
 def generovani_klice():
     """
     Funkce generuje slovník klíčů RSA algoritmu.
@@ -92,9 +93,9 @@ def test_text_na_cisla(retezec):
     Vstup -> Testovací text
     Výstup -> Úspěšnost testu (True/False)
     """
-    return f"Test -> text na cisla funguje : {retezec == cisla_na_text(text_na_cisla(retezec, 6))}"
+    print(f"Test -> text na cisla funguje : {retezec == cisla_na_text(text_na_cisla(retezec))}")
 
 if __name__ == "__main__":
-    print(test_text_na_cisla(vsechny_znaky))
+    test_text_na_cisla(vsechny_znaky.replace("#", ""))
     
 
