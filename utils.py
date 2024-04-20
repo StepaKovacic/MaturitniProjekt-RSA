@@ -90,8 +90,8 @@ def generovani_klice():
 def test_text_na_cisla(retezec):
     """
     Test převodu textu na čísla a zpět. 
-    Vstup -> Testovací text
-    Výstup -> Úspěšnost testu (True/False)
+    Vstup -> Text text
+    Výstup -> Boolean
     """
     print(f"Test -> text na cisla funguje : {retezec == cisla_na_text(text_na_cisla(retezec))}")
 
