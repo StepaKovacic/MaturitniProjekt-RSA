@@ -1,6 +1,6 @@
-from utils import *
+from utils import text_na_cisla, cisla_na_text, generovani_klice, vsechny_znaky, skok
 
-vsechny_znaky = znaky()
+
 
 def enc(text_na_prevod, n, e):
     """
@@ -31,6 +31,9 @@ def dec(zakodovany_text, n, d):
     Výstup -> text
     """
     def _powmod(base, exp, mod):
+        """
+        
+        """
         if exp == 0:
             return 1
         result = _powmod(base, exp//2, mod)**2
@@ -40,14 +43,14 @@ def dec(zakodovany_text, n, d):
     dekodovany_text = ""
     for cast_zakodovaneho_textu in zakodovany_text:
         #přidávám hodně nul, abych doplnil ty, které se v průběhu konveze str->int ztratí
-        dekodovany_text += (str(10000000 + _powmod(cast_zakodovaneho_textu, d, n))[2:])
+        dekodovany_text += (str(10**(skok) + _powmod(cast_zakodovaneho_textu, d, n))[1:])
     return cisla_na_text(dekodovany_text)
 
 def _test(zprava, ind):
     klic = generovani_klice()
     x = dec(enc(zprava, klic["verejny_klic"][0], klic["verejny_klic"][1]), klic["soukromy_klic"][0], klic["soukromy_klic"][1])
-    bool_knihovna = {True:"úspěšný ✅", False:"neúspěšný ❌"}
-    return f"Test zakódovaní a zpětného dekódování číslo {ind} ->  {bool_knihovna[x==zprava]} \n"
+    def test_output(usepsnost_neuspesnost): return "úspěšný ✅" if usepsnost_neuspesnost == True else "neúspěšný ❌"
+    return f"Test zakódovaní a zpětného dekódování číslo {ind} ->  {test_output(x==zprava)} \n"
 
 if __name__ == "__main__":
     for i in range(10):

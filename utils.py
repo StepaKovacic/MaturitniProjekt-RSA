@@ -1,32 +1,27 @@
 import random
 skok = 6
-def znaky():
-    """
-    Funkce vrací jednotný retězec používaných znaků se správným pořadím
-    """
-    return  " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťžABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓŮÚÝĚČĎŇŘŠŤŽ1234567890.,#"
 
-vsechny_znaky = znaky()
+vsechny_znaky = " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťžABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓŮÚÝĚČĎŇŘŠŤŽ1234567890.,#"
 
 def text_na_cisla(reterez_na_prevod):
-        """
-        Funkce převede text na list celých čísel
-        Vstup -> text, délka celých čísel (skok)
-        Výstup -> list celých čísel o délce "skok"
-        """
+    """
+    Funkce převede text na list celých čísel
+    Vstup -> text, délka celých čísel (skok)
+    Výstup -> list celých čísel o délce "skok"
+    """
         
-        vata = "#"*skok
-        reterez_na_prevod = reterez_na_prevod + vata
-        for i in reterez_na_prevod:
-            if i not in vsechny_znaky:
-                print("toto nelze vykonat, v řetězci se nachází nedovolený znak: " + str(i))
-                return
-        nerozdeleny_text = ""
-        for i in reterez_na_prevod:
-            nerozdeleny_text += str(100 + (vsechny_znaky.find(i)))[1:]
-        rozdeleny_retezec = [(nerozdeleny_text[i:i+skok]) for i in range(0, len(nerozdeleny_text), skok)]
-        # print(rozdeleny_retezec)
-        return rozdeleny_retezec
+    vata = "#"*skok
+    reterez_na_prevod = reterez_na_prevod + vata
+    for i in reterez_na_prevod:
+        if i not in vsechny_znaky:
+            print("toto nelze vykonat, v řetězci se nachází nedovolený znak: " + str(i))
+            return
+    nerozdeleny_text = ""
+    for i in reterez_na_prevod:
+        nerozdeleny_text += str(10**2 + (vsechny_znaky.find(i)))[1:]
+    rozdeleny_retezec = [(nerozdeleny_text[i:i+skok]) for i in range(0, len(nerozdeleny_text), skok)]
+    # print(rozdeleny_retezec)
+    return rozdeleny_retezec
 
 def cisla_na_text(cisla_na_prevod):
     """
@@ -35,7 +30,7 @@ def cisla_na_text(cisla_na_prevod):
     Výstup -> text
     """
     slouceno_dohromady = "".join(cisla_na_prevod)
-    retezec_neocisteny = "".join([vsechny_znaky[int(index_znaku)] for index_znaku in[slouceno_dohromady[x:x+2] for x in [i for i in range(0, len(slouceno_dohromady), 2)]]])
+    retezec_neocisteny = "".join([vsechny_znaky[int(index_znaku)] for index_znaku in[slouceno_dohromady[x:x+2] for x in range(0, len(slouceno_dohromady), 2)]])
     posledni_hashtag_index = min([i for i, e in enumerate(retezec_neocisteny) if e == "#"])  
     return retezec_neocisteny[:posledni_hashtag_index]
 
@@ -56,9 +51,6 @@ def generovani_klice():
             if cislo_b%i == 0 and i!=1:
                 return True 
         return False
-    
-    
-    
 
     def _generovani_prvocisla():
         while True:
@@ -73,6 +65,10 @@ def generovani_klice():
 
     prvocislo_p = _generovani_prvocisla()
     prvocislo_q = _generovani_prvocisla()
+    while prvocislo_p == prvocislo_q:
+        prvocislo_q = _generovani_prvocisla()
+
+
 
     
     n = prvocislo_p * prvocislo_q
@@ -98,8 +94,9 @@ def _test_text_na_cisla(retezec):
     Vstup -> Text text
     Výstup -> Boolean
     """
+    def test_output(usepsnost_neuspesnost): return "úspěšný ✅" if usepsnost_neuspesnost == True else "neúspěšný ❌"
     bool_knihovna = {True:"úspěšný ✅", False:"neúspěšný ❌"}
-    print(f"Test prevodu textu na cisla ->  {bool_knihovna[retezec == cisla_na_text(text_na_cisla(retezec))]}")
+    print(f"Test prevodu textu na cisla ->  {test_output(retezec == cisla_na_text(text_na_cisla(retezec)))}")
 
 if __name__ == "__main__":
     print(generovani_klice())
