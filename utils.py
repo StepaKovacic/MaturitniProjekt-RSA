@@ -30,6 +30,7 @@ def cisla_na_text(cisla_na_prevod):
     Výstup -> text
     """
     slouceno_dohromady = "".join(cisla_na_prevod)
+    
     retezec_neocisteny = "".join([vsechny_znaky[int(index_znaku)] for index_znaku in[slouceno_dohromady[x:x+2] for x in range(0, len(slouceno_dohromady), 2)]])
     posledni_hashtag_index = min([i for i, e in enumerate(retezec_neocisteny) if e == "#"])  
     return retezec_neocisteny[:posledni_hashtag_index]
@@ -67,10 +68,6 @@ def generovani_klice():
     prvocislo_q = _generovani_prvocisla()
     while prvocislo_p == prvocislo_q:
         prvocislo_q = _generovani_prvocisla()
-
-
-
-    
     n = prvocislo_p * prvocislo_q
     phi = (prvocislo_p - 1) * (prvocislo_q - 1)
     #zvolíme náhodné e nesoudělné s phi
@@ -94,9 +91,8 @@ def _test_text_na_cisla(retezec):
     Vstup -> Text text
     Výstup -> Boolean
     """
-    def test_output(usepsnost_neuspesnost): return "úspěšný ✅" if usepsnost_neuspesnost == True else "neúspěšný ❌"
-    bool_knihovna = {True:"úspěšný ✅", False:"neúspěšný ❌"}
-    print(f"Test prevodu textu na cisla ->  {test_output(retezec == cisla_na_text(text_na_cisla(retezec)))}")
+    vystup =  "úspěšný ✅" if retezec == cisla_na_text(text_na_cisla(retezec)) else "neúspěšný ❌"
+    print(f"Test prevodu textu na cisla ->  {vystup}")
 
 if __name__ == "__main__":
     print(generovani_klice())

@@ -32,7 +32,13 @@ def dec(zakodovany_text, n, d):
     """
     def _powmod(base, exp, mod):
         """
-        
+        Funkce vrací zbytek po dělení exponenciálního výrazu
+        Vstup -> 
+            base - celé číslo (integer)
+            exp  - celé číslo (integer)
+            mod  - celé číslo (integer)
+
+        Výstup -> text
         """
         if exp == 0:
             return 1
@@ -49,8 +55,8 @@ def dec(zakodovany_text, n, d):
 def _test(zprava, ind):
     klic = generovani_klice()
     x = dec(enc(zprava, klic["verejny_klic"][0], klic["verejny_klic"][1]), klic["soukromy_klic"][0], klic["soukromy_klic"][1])
-    def test_output(usepsnost_neuspesnost): return "úspěšný ✅" if usepsnost_neuspesnost == True else "neúspěšný ❌"
-    return f"Test zakódovaní a zpětného dekódování číslo {ind} ->  {test_output(x==zprava)} \n"
+    vystup =  "úspěšný ✅" if x==zprava else "neúspěšný ❌"
+    return f"Test zakódovaní a zpětného dekódování číslo {ind} ->  {vystup} \n"
 
 if __name__ == "__main__":
     for i in range(10):
