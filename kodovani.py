@@ -59,6 +59,6 @@ def _test(zprava, ind):
     return f"Test zakódovaní a zpětného dekódování číslo {ind} ->  {vystup} \n"
 
 if __name__ == "__main__":
-    for i in range(10):
+    for i in range(20):
         print(_test(vsechny_znaky.replace("#", ""), i+1))
     

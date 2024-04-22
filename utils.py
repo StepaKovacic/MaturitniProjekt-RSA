@@ -30,9 +30,9 @@ def cisla_na_text(cisla_na_prevod):
     Výstup -> text
     """
     slouceno_dohromady = "".join(cisla_na_prevod)
-    
-    retezec_neocisteny = "".join([vsechny_znaky[int(index_znaku)] for index_znaku in[slouceno_dohromady[x:x+2] for x in range(0, len(slouceno_dohromady), 2)]])
-    posledni_hashtag_index = min([i for i, e in enumerate(retezec_neocisteny) if e == "#"])  
+    rozsekane_na_indexy = [int(slouceno_dohromady[x:x+2]) for x in range(0, len(slouceno_dohromady), 2)]
+    retezec_neocisteny = "".join([vsechny_znaky[index_znaku] for index_znaku in rozsekane_na_indexy])
+    posledni_hashtag_index = retezec_neocisteny.find("#")
     return retezec_neocisteny[:posledni_hashtag_index]
 
     
@@ -76,7 +76,6 @@ def generovani_klice():
         e = random.randrange(5000, 10000)
         if _soudelna(e, phi) == False:
             break
-        
     d = 1
     while True:
         if (d*e)%phi == 1:
