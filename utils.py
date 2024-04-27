@@ -9,7 +9,6 @@ def text_na_cisla(reterez_na_prevod):
     Vstup -> text, délka celých čísel (skok)
     Výstup -> list řetězců (str) celých čísel o délce "skok"
     """
-        
     vata = "#"*skok
     reterez_na_prevod = reterez_na_prevod + vata
     for i in reterez_na_prevod:
@@ -73,7 +72,7 @@ def generovani_klice():
     #zvolíme náhodné e nesoudělné s phi
     while True:
         # vygenerování náhodného čísla e které je nesoudělné s phi
-        e = random.randrange(5000, 10000)
+        e = random.randrange(1000, 10000)
         if _soudelna(e, phi) == False:
             break
     d = 1
