@@ -35,7 +35,10 @@ tímto způsobem přeloží funkce text na čísla a vznikne jeden dlouhý řet�
 
 Hodnota `skok=6` je odvozená od hodnoty `n`. Slouží k tomu, aby rozdělovala zmíněný přeložený řetězec.
 
-Musí platit, že $$ n \in [1000^2; 10000^2] \land n \in Z$$
+Musí platit, že 
+```math
+n \in [1000^2; 10000^2] \land n \in Z
+```
 
 jelikož `preložený řetězec < n` a minimální hodnota `n` je 10^6 postačí aby řetězce byly dlouhé maximálně 6 jelikož nikdy nenabydou hodnoty 10^6 a více. 
 
@@ -63,7 +66,9 @@ Všechny funkce které slouží k zakódování a dekódování se nachází v s
 ### Encode (enc)
 
 Funkce `enc()` využívá k zakódování rovnici 
-$$ c = m^e \mod n$$
+```math
+c = m^e \mod n
+```
 kde `m` je původní zpráva a `n` a `e` jsou součásti veřejného klíče. Výsledné `c` je zašifrovaná zpráva. 
 
 
