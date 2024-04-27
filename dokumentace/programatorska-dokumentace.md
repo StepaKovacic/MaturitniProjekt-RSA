@@ -42,7 +42,7 @@ n \in [1000^2; 10000^2] \land n \in Z
 
 jelikož `preložený řetězec < n` a minimální hodnota `n` je 10^6 postačí aby řetězce byly dlouhé maximálně 6 jelikož nikdy nenabydou hodnoty 10^6 a více. 
 
-### Vata
+#### Vata
 
 Vata je série stejných znaků, přesněji `#` které nelze použít ve zprávě. Jedná se o speciální znak používaný v kontrolování správného množství mezer, kterým odpovídá číslo `"00"`. Všechny položky v listu mají délku skok, ale může se stát, že poslední člen listu bude mít méně než `skok` znaků. tímto se zajistí, že poslední znaky budou na správném místě a `#` se budou ignorovat.
 
