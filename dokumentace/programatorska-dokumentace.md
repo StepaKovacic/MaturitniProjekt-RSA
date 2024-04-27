@@ -27,7 +27,7 @@ Soubor `utils.py` obsahuje nástroje a proměné využívané v souboru `kodovan
 
 funkce `text_na_cisla` převede text na čísla. Funguje na principu, že každý znak, který lze kódovat a dekódovat se nachází v řetězci `vsechny_znaky`, jež se nemění. Každý znak se v řetězci vyskytuje pouze jednou a jeho index je jedinečný. problém je v tom, že prvních 10 znaků má jednociferný index a indexy se ukládají jako dvouciferná čísla, proto je potřeba ukládat jeho hodnotu jako string ve formátu (pro příklad znaku `c`) `"03"`. 
 
-následujícím způsobem přeloží funkce text na čísla a vznikne jeden dlouhý string. V některých případech se však může stát, že řetězec bude tak dlouhý, že nebude možné s ním provádět aritmetiku požadovanou RSA. Z toho důvodu je potřeba řetězec rozdělit, přičemž velikost zprávy jež bude zakódována musí být menší než `n`. 
+tímto způsobem přeloží funkce text na čísla a vznikne jeden dlouhý řetězec. V některých případech se však může stát, že řetězec bude tak dlouhý, že nebude možné s ním provádět aritmetiku požadovanou RSA. Z toho důvodu je potřeba řetězec rozdělit, přičemž velikost zprávy jež bude zakódována musí být menší než `n`. 
 
 #### Skok
 
@@ -38,8 +38,13 @@ Musí platit, že $$ n \in [1000^2; 10000^2] \land n \in Z$$
 jelikož `preložený řetězec < n` a minimální hodnota `n` je 10^6 postačí aby řetězce byly dlouhé maximálně 6 jelikož nikdy nenabydou hodnoty 10^6 a více. 
 
 
+### Čísla na text 
 
+Funkce sloučí list stupu, který obsahuje řetězce s čísly. Následně každé dvojčíslí použije jako index v řetězci `vsechny_znaky` a na závěr odstraní výplňové znaky `#`. 
 
+### Generování klíče
+
+pro generování klíče je potřeba vybrat dvě velká Náhodná prvočísla `p` a `q`. Vypočte se jejich součin `n` a Eulerova funkce $ \varphi  (n) = (p-1)(q-1)$. následně se hledá číslo `e` které je s $\varphi(n)$ nesoudělné. 
 
 
 
