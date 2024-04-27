@@ -23,20 +23,24 @@ Soubor `utils.py` obsahuje nástroje a proměné využívané v souboru `kodovan
 
 Řetězec `vsechny_znaky` obsahuje všechny znaky v jednotném pořadí (kvůli indexům), které se v průběhu kódování a dekódování používají. Slouží jak při konvertování čísel na text tak při konvertování textu na čísla. Proměnou lze přepsat, pokud je potřeba změnit povolené znaky, musí však zůstat maximální délka 98 znaků. 
 
-### Skok
-
-Hodnota `skok=6` je odvozená od hodnoty `n`. Slouží k tomu, aby rozdělovala 
-
-Musí platit, že $ n \in [1000^2; 10000^2] \land n \in Z$
-
-
-
-
-
-
 ### Text na čísla 
 
-funkce `text_na_cisla` převád
+funkce `text_na_cisla` převede text na čísla. Funguje na principu, že každý znak, který lze kódovat a dekódovat se nachází v řetězci `vsechny_znaky`, jež se nemění. Každý znak se v řetězci vyskytuje pouze jednou a jeho index je jedinečný. problém je v tom, že prvních 10 znaků má jednociferný index a indexy se ukládají jako dvouciferná čísla, proto je potřeba ukládat jeho hodnotu jako string ve formátu (pro příklad znaku `c`) `"03"`. 
+
+následujícím způsobem přeloží funkce text na čísla a vznikne jeden dlouhý string. V některých případech se však může stát, že řetězec bude tak dlouhý, že nebude možné s ním provádět aritmetiku požadovanou RSA. Z toho důvodu je potřeba řetězec rozdělit, přičemž velikost zprávy jež bude zakódována musí být menší než `n`. 
+
+#### Skok
+
+Hodnota `skok=6` je odvozená od hodnoty `n`. Slouží k tomu, aby rozdělovala zmíněný přeložený řetězec.
+
+Musí platit, že $$ n \in [1000^2; 10000^2] \land n \in Z$$
+
+jelikož `preložený řetězec < n` a minimální hodnota `n` je 10^6 postačí aby řetězce byly dlouhé maximálně 6 jelikož nikdy nenabydou hodnoty 10^6 a více. 
+
+
+
+
+
 
 
 ## Kódování
