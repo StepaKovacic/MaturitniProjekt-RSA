@@ -69,6 +69,9 @@ kde `m` je původní zpráva a `n` a `e` jsou součásti veřejného klíče. V�
 
 ### Decode (dec)
 
-funcke `dec` dekóduje pomocí rovnice $$` m = c^d \mod n `$$
+funcke `dec` dekóduje pomocí rovnice 
+```math
+ m = c^d \mod n 
+ ```
 
 pro neztrácení dat byla doposavaď data skladována jako string nikoliv jako int, jelikož nuly na začátku by byly ztraceny. nyní po dekódování je potřeba doplnic výsledné položky listu na délku skok. k tomu se použije `str(10**(skok) + cislo_s_nedostatecnou_delkou)[1:]`
