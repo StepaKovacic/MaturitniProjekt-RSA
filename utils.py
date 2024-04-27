@@ -7,7 +7,7 @@ def text_na_cisla(reterez_na_prevod):
     """
     Funkce převede text na list celých čísel
     Vstup -> text, délka celých čísel (skok)
-    Výstup -> list celých čísel o délce "skok"
+    Výstup -> list řetězců celých čísel o délce "skok"
     """
         
     vata = "#"*skok
@@ -25,8 +25,8 @@ def text_na_cisla(reterez_na_prevod):
 
 def cisla_na_text(cisla_na_prevod):
     """
-    Funkce převede list celých čísel na text.
-    Vstup -> list celých čísel (integerů)
+    Funkce převede list řetězců z celých čísel na text.
+    Vstup -> list řetězců obsahujcích 6  (integerů)
     Výstup -> text
     """
     slouceno_dohromady = "".join(cisla_na_prevod)
