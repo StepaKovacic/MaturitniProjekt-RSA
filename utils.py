@@ -28,6 +28,7 @@ def cisla_na_text(cisla_na_prevod):
     Vstup -> list řetězců (str) o délce skok
     Výstup -> text
     """
+    
     slouceno_dohromady = "".join(cisla_na_prevod)
     rozsekane_na_indexy = [int(slouceno_dohromady[x:x+2]) for x in range(0, len(slouceno_dohromady), 2)]
     retezec_neocisteny = "".join([vsechny_znaky[index_znaku] for index_znaku in rozsekane_na_indexy])
@@ -62,6 +63,12 @@ def generovani_klice():
                     break
             if is_prime:
                 return x
+    def _neni_prvocislo(cislo):
+        for i in range(2, int(cislo**(1/2))+1):
+            if cislo % i == 0:
+                return True
+        return False
+    
 
     prvocislo_p = _generovani_prvocisla()
     prvocislo_q = _generovani_prvocisla()
@@ -73,8 +80,9 @@ def generovani_klice():
     while True:
         # vygenerování náhodného čísla e které je nesoudělné s phi
         e = random.randrange(1000, 10000)
-        if _soudelna(e, phi) == False:
+        if _soudelna(e, phi) == False and _neni_prvocislo(e):
             break
+            
     d = 1
     while True:
         if (d*e)%phi == 1:

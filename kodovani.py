@@ -45,6 +45,7 @@ def dec(zakodovany_text, n, d):
     for cast_zakodovaneho_textu in zakodovany_text:
         #přidávám hodně nul, abych doplnil ty, které se v průběhu konveze str->int ztratí
         dekodovany_text += (str(10**(skok) + _powmod(cast_zakodovaneho_textu, d, n))[1:])
+    
     return cisla_na_text(dekodovany_text)
 
 def _test(zprava, ind):
