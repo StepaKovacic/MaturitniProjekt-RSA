@@ -27,7 +27,7 @@ Soubor `utils.py` obsahuje nástroje a proměné využívané v souboru `kodovan
 
 Hodnota `skok=6` je odvozená od hodnoty `n`. Slouží k tomu, aby rozdělovala 
 
-Musí platit, že $$ n \in [1000^2; 10000^2] \land n \in Z$$
+Musí platit, že $ n \in [1000^2; 10000^2] \land n \in Z$
 
 
 
