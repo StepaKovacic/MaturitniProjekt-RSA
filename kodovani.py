@@ -7,9 +7,9 @@ def enc(text_na_prevod, n, e):
     Funkce zakóduje zprávu pomocí RSA.
     Vstup -> 
         text_na_prevod  - text
-        n               - celé číslo (integer)
-        e               - celé číslo (integer)
-    Výstup -> list řetězců obsahujcích 6  (integerů)
+        n               - celé číslo (int)
+        e               - celé číslo (int)
+    Výstup -> seznam obsahujcí šesticiferná celá čísla (int)
     """
     rozdeleny_ciselny_retezec = text_na_cisla(text_na_prevod)
     list_zasifrovanych_podretezcu = []
@@ -21,18 +21,18 @@ def dec(zakodovany_text, n, d):
     """
     Funkce dekóduje zašifrovanou zprávu pomocí RSA.
     Vstup -> 
-        zakodovany_text - list celých čísel o délce 6
-        n               - celé číslo (integer)
-        d               - celé číslo (integer)
+        zakodovany_text - Výstup -> seznam obsahujcí šesticiferná celá čísla (int)
+        n               - celé číslo (int)
+        d               - celé číslo (int)
     Výstup -> text
     """
     def _powmod(base, exp, mod):
         """
         Funkce vrací zbytek po dělení exponenciálního výrazu
         Vstup -> 
-            base - celé číslo (integer)
-            exp  - celé číslo (integer)
-            mod  - celé číslo (integer)
+            base - celé číslo (int)
+            exp  - celé číslo (int)
+            mod  - celé číslo (int)
         Výstup -> text
         """
         if exp == 0:
