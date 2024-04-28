@@ -55,10 +55,6 @@ Funkce sloučí list vstupu, který obsahuje řetězce s čísly. Následně ka�
 
 Funkce generuje dictionary s klíči `soukromy_klic` a `verejny_klic`. Uvnitř funkce `generovani_klice` se nachází několik dalších funkcí, použitých interně. 
 
-
-
-při hledání čísla `e` je požadováno, aby se nejednalo o prvočíslo. Z matematického hlediska může být, není to však nutné.
-
 ## Kódování
 
 Všechny funkce které slouží k zakódování a dekódování se nachází v souboru `kodovani.py`. Jedná se o funkce:
@@ -91,6 +87,6 @@ Pro neztrácení dat byla doposavaď data skladována jako string nikoliv jako i
 
 + [https://www.w3schools.com/python/default.asp](https://www.w3schools.com/python/default.asp)
 
-+ Konzultace s vedoucím práce Adamem Domincem
++ Konzultace s vedoucím práce Mgr. Adamem Domincem
 
 + Konzultace s Lukášem Novákem
