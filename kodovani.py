@@ -42,11 +42,10 @@ def dec(zakodovany_text:list , n:int, d:int):
         if exp % 2 == 1:
             result *= base
         return result % mod
-    dekodovany_text = ""
+    dekodovany_text = []
     for cast_zakodovaneho_textu in zakodovany_text:
         #přidávám hodně nul, abych doplnil ty, které se v průběhu konveze str->int ztratí
-        dekodovany_text += (str(10**(skok) + _powmod(cast_zakodovaneho_textu, d, n))[1:])
-    
+        dekodovany_text.append(str(10**(skok) + _powmod(cast_zakodovaneho_textu, d, n))[1:])
     return cisla_na_text(dekodovany_text)
 
 def _test(zprava:str, ind:int):
