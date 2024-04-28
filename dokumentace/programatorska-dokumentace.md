@@ -87,6 +87,6 @@ Pro neztrácení dat byla doposavaď data skladována jako string nikoliv jako i
 
 + [https://www.w3schools.com/python/default.asp](https://www.w3schools.com/python/default.asp)
 
-+ Konzultace s vedoucím práce Adamem Domincem
++ Konzultace s vedoucím práce Mgr. Adamem Domincem
 
 + Konzultace s Lukášem Novákem
