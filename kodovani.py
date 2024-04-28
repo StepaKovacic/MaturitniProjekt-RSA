@@ -1,15 +1,16 @@
+import random
 from utils import text_na_cisla, cisla_na_text, generovani_klice, vsechny_znaky, skok
 
 
 
-def enc(text_na_prevod, n, e):
+def enc(text_na_prevod:str, n:int , e:int ):
     """
     Funkce zakóduje zprávu pomocí RSA.
     Vstup -> 
-        text_na_prevod  - text
-        n               - celé číslo (int)
-        e               - celé číslo (int)
-    Výstup -> seznam obsahujcí šesticiferná celá čísla (int)
+        text_na_prevod  - text, který bude převeden pomocí RSA
+        n               - společná část RSA klíčů
+        e               - část RSA veřejného klíče
+    Výstup -> seznam obsahujcí šesticiferná celá čísla - list
     """
     rozdeleny_ciselny_retezec = text_na_cisla(text_na_prevod)
     list_zasifrovanych_podretezcu = []
@@ -17,23 +18,23 @@ def enc(text_na_prevod, n, e):
         list_zasifrovanych_podretezcu.append((int(clen_ciselneho_rezezce)**e)%n)
     return list_zasifrovanych_podretezcu
 
-def dec(zakodovany_text, n, d):
+def dec(zakodovany_text:list , n:int, d:int):
     """
     Funkce dekóduje zašifrovanou zprávu pomocí RSA.
     Vstup -> 
-        zakodovany_text - Výstup -> seznam obsahujcí šesticiferná celá čísla (int)
-        n               - celé číslo (int)
-        d               - celé číslo (int)
-    Výstup -> text
+        zakodovany_text - seznam obsahujcí šesticiferná celá čísla, jež se budou dekódovat
+        n               - společná část RSA klíčů
+        d               - část RSA soukromého klíče
+    Výstup -> dekódovaný text - str
     """
-    def _powmod(base, exp, mod):
+    def _powmod(base:int, exp:int, mod:int):
         """
-        Funkce vrací zbytek po dělení exponenciálního výrazu
+        Funkce vrací zbytek po dělení exponenciálního výrazu ((base**exp) % mod)
         Vstup -> 
-            base - celé číslo (int)
-            exp  - celé číslo (int)
-            mod  - celé číslo (int)
-        Výstup -> text
+            base - základ 
+            exp  - exponent
+            mod  - dělitel
+        Výstup -> zbytek po dělení mod (dělitelem) - int
         """
         if exp == 0:
             return 1
@@ -48,7 +49,7 @@ def dec(zakodovany_text, n, d):
     
     return cisla_na_text(dekodovany_text)
 
-def _test(zprava, ind):
+def _test(zprava:str, ind:int):
     klic = generovani_klice()
     # x = dec(enc(zprava, klic["verejny_klic"][0], klic["verejny_klic"][1]), klic["soukromy_klic"][0], klic["soukromy_klic"][1])
     x = dec(enc(zprava, *klic["verejny_klic"]), *klic["soukromy_klic"])
@@ -57,6 +58,6 @@ def _test(zprava, ind):
 
 if __name__ == "__main__":
     for i in range(5):
-        # print(_test(vsechny_znaky.replace("#", ""), i+1))
-        print(_test("gasdogfhasdfh aisdfha skdjfkjjščřěščěščř  ", i+1))
+        zprava = "".join(random.sample(vsechny_znaky[:-1], 50))
+        print(_test(zprava, i+1))
     

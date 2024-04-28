@@ -55,8 +55,6 @@ Funkce sloučí list stupu, který obsahuje řetězce s čísly. Následně kaž
 
 Funkce generuje dictionary s klíči `soukromy_klic` a `verejny_klic`. Uvnitř funkce `generovani_klice` se nachází několik dalších funkcí, použitých interně. 
 
-při hledání čísla `e` je požadováno, aby se nejednalo o prvočíslo. Z matematického hlediska může být, není to však nutné.
-
 
 
 ## Kódování
@@ -80,3 +78,17 @@ funcke `dec` dekóduje pomocí rovnice
  ```
 
 pro neztrácení dat byla doposavaď data skladována jako string nikoliv jako int, jelikož nuly na začátku by byly ztraceny. nyní po dekódování je potřeba doplnic výsledné položky listu na délku skok. k tomu se použije `str(10**(skok) + cislo_s_nedostatecnou_delkou)[1:]`
+
+
+## Zdroje 
++ [https://cs.wikipedia.org/wiki/RSA](https://cs.wikipedia.org/wiki/RSA)
+
++ [https://en.wikipedia.org/wiki/RSA_(cryptosystem)](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
+
++ [https://stackoverflow.com/questions/9475241/split-string-every-nth-character](https://stackoverflow.com/questions/9475241/split-string-every-nth-character)
+
++ [https://www.w3schools.com/python/default.asp](https://www.w3schools.com/python/default.asp)
+
++ Konzultace s vedoucím práce Adamem Domincem
+
++ Konzultace s Lukášem Novákem

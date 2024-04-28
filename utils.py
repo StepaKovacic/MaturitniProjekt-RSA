@@ -3,11 +3,11 @@ skok = 6
 
 vsechny_znaky = " abcdefghijklmnopqrstuvwxyzáéíóůúýěčďňřšťžABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓŮÚÝĚČĎŇŘŠŤŽ1234567890.,#"
 
-def text_na_cisla(reterez_na_prevod):
+def text_na_cisla(reterez_na_prevod:str):
     """
     Funkce převede text na list celých čísel
-    Vstup -> text, délka celých čísel (skok)
-    Výstup -> list řetězců (str) celých čísel o délce "skok"
+    Vstup -> text, který se přeloží na číselný řetězec
+    Výstup -> seznam řetězců celých čísel o délce "skok" - list
     """
     vata = "#"*skok
     reterez_na_prevod = reterez_na_prevod + vata
@@ -22,11 +22,11 @@ def text_na_cisla(reterez_na_prevod):
     # print(rozdeleny_retezec)
     return rozdeleny_retezec
 
-def cisla_na_text(cisla_na_prevod):
+def cisla_na_text(cisla_na_prevod:list):
     """
     Funkce převede list řetězců z celých čísel na text.
-    Vstup -> list řetězců (str) o délce skok
-    Výstup -> text
+    Vstup -> seznam řetězců čísel na převod (řetězec pouze u testování funkce)
+    Výstup -> číselný přeložený řetězec na text
     """
     
     slouceno_dohromady = "".join(cisla_na_prevod)
@@ -40,7 +40,7 @@ def generovani_klice():
     """
     Funkce generuje slovník klíčů RSA algoritmu.
     Vstup -> žádný 
-    Výstup -> ve formátu {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
+    Výstup -> RSA sada klíčů ve formátu {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
     """
     def _soudelna(cislo_a, cislo_b):
         delitele_cisla_a = []
@@ -63,12 +63,6 @@ def generovani_klice():
                     break
             if is_prime:
                 return x
-    def _neni_prvocislo(cislo):
-        for i in range(2, int(cislo**(1/2))+1):
-            if cislo % i == 0:
-                return True
-        return False
-    
 
     prvocislo_p = _generovani_prvocisla()
     prvocislo_q = _generovani_prvocisla()
@@ -80,7 +74,7 @@ def generovani_klice():
     while True:
         # vygenerování náhodného čísla e které je nesoudělné s phi
         e = random.randrange(1000, 10000)
-        if _soudelna(e, phi) == False and _neni_prvocislo(e):
+        if _soudelna(e, phi) == False:
             break
             
     d = 1
@@ -91,10 +85,10 @@ def generovani_klice():
             d += 1
     return {"verejny_klic":(n, e), "soukromy_klic":(n, d) }
 
-def _test_text_na_cisla(retezec):
+def _test_text_na_cisla(retezec:str):
     """
     Test převodu textu na čísla a zpět. 
-    Vstup -> Text text
+    Vstup -> testovací řetězec
     Výstup -> Boolean
     """
     vystup =  "úspěšný ✅" if retezec == cisla_na_text(text_na_cisla(retezec)) else "neúspěšný ❌"
