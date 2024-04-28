@@ -28,9 +28,8 @@ def cisla_na_text(cisla_na_prevod:list):
     Vstup -> seznam řetězců čísel na převod (řetězec pouze u testování funkce)
     Výstup -> číselný přeložený řetězec na text
     """
-    
-    slouceno_dohromady = "".join(cisla_na_prevod)
-    rozsekane_na_indexy = [int(slouceno_dohromady[x:x+2]) for x in range(0, len(slouceno_dohromady), 2)]
+
+    rozsekane_na_indexy = [int(cisla_na_prevod[x:x+2]) for x in range(0, len(cisla_na_prevod), 2)]
     retezec_neocisteny = "".join([vsechny_znaky[index_znaku] for index_znaku in rozsekane_na_indexy])
     posledni_hashtag_index = retezec_neocisteny.find("#")
     return retezec_neocisteny[:posledni_hashtag_index]
@@ -91,7 +90,7 @@ def _test_text_na_cisla(retezec:str):
     Vstup -> testovací řetězec
     Výstup -> Boolean
     """
-    vystup =  "úspěšný ✅" if retezec == cisla_na_text(text_na_cisla(retezec)) else "neúspěšný ❌"
+    vystup =  "úspěšný ✅" if retezec == cisla_na_text("".join(text_na_cisla(retezec))) else "neúspěšný ❌"
     print(f"Test prevodu textu na cisla ->  {vystup}")
 
 if __name__ == "__main__":
