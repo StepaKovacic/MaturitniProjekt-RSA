@@ -19,7 +19,6 @@ def text_na_cisla(reterez_na_prevod:str):
     for i in reterez_na_prevod:
         nerozdeleny_text += str(10**2 + (vsechny_znaky.find(i)))[1:]
     rozdeleny_retezec = [(nerozdeleny_text[i:i+skok]) for i in range(0, len(nerozdeleny_text), skok)]
-    # print(rozdeleny_retezec)
     return rozdeleny_retezec
 
 def cisla_na_text(cisla_na_prevod:list):
@@ -47,7 +46,6 @@ def generovani_klice():
         for i in range(1, cislo_a+1):
             if cislo_a%i == 0:
                 delitele_cisla_a.append(i)
-        #print(delitele_cisla_a)
         for i in delitele_cisla_a:
             if cislo_b%i == 0 and i!=1:
                 return True 

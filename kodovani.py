@@ -2,7 +2,6 @@ import random
 from utils import text_na_cisla, cisla_na_text, generovani_klice, vsechny_znaky, skok
 
 
-
 def enc(text_na_prevod:str, n:int , e:int ):
     """
     Funkce zakóduje zprávu pomocí RSA.
@@ -50,7 +49,6 @@ def dec(zakodovany_text:list , n:int, d:int):
 
 def _test(zprava:str, ind:int):
     klic = generovani_klice()
-    # x = dec(enc(zprava, klic["verejny_klic"][0], klic["verejny_klic"][1]), klic["soukromy_klic"][0], klic["soukromy_klic"][1])
     x = dec(enc(zprava, *klic["verejny_klic"]), *klic["soukromy_klic"])
     vystup =  "úspěšný ✅" if x==zprava else "neúspěšný ❌"
     return f"Test zakódovaní a zpětného dekódování číslo {ind} ->  {vystup} \n"
