@@ -55,6 +55,10 @@ Funkce sloučí list vstupu, který obsahuje řetězce s čísly. Následně ka�
 
 Funkce generuje dictionary s klíči `soukromy_klic` a `verejny_klic`. Uvnitř funkce `generovani_klice` se nachází několik dalších funkcí, použitých interně. 
 
+### Test konvertování textu na čísla 
+
+Při spuštění kódu v terminálu (tj. ne jako import) se spustí funkce, která kontroluje na testovacím řetězci převod na čísla a zpět. Vrací, zda se testovací řetězec shoduje s konvertovaným. 
+
 ## Kódování
 
 Všechny funkce, které slouží k zakódování a dekódování, se nachází v souboru `kodovani.py`. Jedná se o funkce:
@@ -77,6 +81,9 @@ Funkce `dec` dekóduje pomocí rovnice
 
 Pro neztrácení dat byla doposud data skladována jako string nikoliv jako int, jelikož nuly na začátku by byly ztraceny. Nyní po dekódování je potřeba doplnit výsledné položky listu na délku skok. K tomu se použije `str(10**(skok) + cislo_s_nedostatecnou_delkou)[1:]`
 
+### Test 
+
+V kódu se nachází testovací funkce `_test`, která vygeneruje klíč a následně s ním zakóduje a poté dekóduje testovací řetězec. Vrací, zda se originální řetězec shoduje s dekódovaným. 
 
 ## Zdroje 
 + [https://cs.wikipedia.org/wiki/RSA](https://cs.wikipedia.org/wiki/RSA)
