@@ -13,7 +13,7 @@ Program Maturitní príce na téma RSA je rozdělen do dvou soborů:
 - `kodovani.py`
 - `utils.py`
 
-Soubor `utils.py` slouží jako pomocný soubor k souboru `kodovani.py` do kterého se importují jeho funkce a jeho výnam je pouze pro přehlednost. 
+Soubor `utils.py` slouží jako pomocný soubor k souboru `kodovani.py`, do kterého se importují jeho funkce a jeho výnam je pouze pro přehlednost. 
 
 ## Utils 
 
@@ -27,7 +27,7 @@ Soubor `utils.py` obsahuje nástroje a proměnné využívané v souboru `kodova
 
 Funkce `text_na_cisla` převede text na čísla. Funguje na principu, že každý znak, který lze kódovat a dekódovat se nachází v řetězci `vsechny_znaky`, jež se nemění. 
 
-Každý znak se v řetězci vyskytuje pouze jednou a jeho index je jedinečný. Prvních 10 znaků má jednociferný index a indexy se ukládají jako dvouciferná čísla, proto je potřeba ukládat jeho hodnotu jako string ve formátu (pro příklad znaku `c`) `"03"`. Pro to se využívá `str(10**2+index)[1:]` 
+Každý znak se v řetězci vyskytuje pouze jednou a jeho index je jedinečný. Prvních 10 znaků má jednociferný index a indexy se ukládají jako dvouciferná čísla, proto je potřeba ukládat jeho hodnotu jako string ve formátu (pro příklad znaku `c`) `"03"`. K tomu se využívá `str(10**2+index)[1:]` 
 
 Tímto způsobem přeloží funkce text na čísla a vznikne jeden dlouhý řetězec. V některých případech se však může stát, že řetězec bude tak dlouhý, že nebude možné s ním provádět aritmetiku požadovanou RSA. Z toho důvodu je potřeba řetězec rozdělit, přičemž velikost zprávy, jež bude zakódována musí být menší než `n`. 
 
@@ -57,7 +57,7 @@ Funkce generuje dictionary s klíči `soukromy_klic` a `verejny_klic`. Uvnitř f
 
 ## Kódování
 
-Všechny funkce které slouží k zakódování a dekódování se nachází v souboru `kodovani.py`. Jedná se o funkce:
+Všechny funkce, které slouží k zakódování a dekódování, se nachází v souboru `kodovani.py`. Jedná se o funkce:
 
 ### Encode (enc)
 
@@ -70,12 +70,12 @@ kde `m` je původní zpráva a `n` a `e` jsou součásti veřejného klíče. V�
 
 ### Decode (dec)
 
-funcke `dec` dekóduje pomocí rovnice 
+Funkce `dec` dekóduje pomocí rovnice 
 ```math
  m = c^d \mod n 
  ```
 
-Pro neztrácení dat byla doposavaď data skladována jako string nikoliv jako int, jelikož nuly na začátku by byly ztraceny. nyní po dekódování je potřeba doplnic výsledné položky listu na délku skok. k tomu se použije `str(10**(skok) + cislo_s_nedostatecnou_delkou)[1:]`
+Pro neztrácení dat byla doposud data skladována jako string nikoliv jako int, jelikož nuly na začátku by byly ztraceny. Nyní po dekódování je potřeba doplnit výsledné položky listu na délku skok. K tomu se použije `str(10**(skok) + cislo_s_nedostatecnou_delkou)[1:]`
 
 
 ## Zdroje 
